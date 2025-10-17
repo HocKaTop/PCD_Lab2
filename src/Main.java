@@ -8,7 +8,7 @@ public class Main {
         LinkedList<Thread> threads = new LinkedList <>();
         ThreadGroup G2G4 = new ThreadGroup(main, "G2G4");
 
-        G2G4.list();
+
         ThreadGroup G1 = new ThreadGroup(G2G4, "G1");
 
         Thread Tha = new Thread(G1, new thr(), "Tha");
@@ -47,12 +47,11 @@ public class Main {
         Thread Th2_main = new Thread(new thr(), "Th2");
         Th2_main.setPriority(6);
         threads.add(Th2_main);
-        System.out.println(threads);
-        Th1.start();
-        String state=Th1.getName();
-        int prioriry =Th1.getPriority();
-        System.out.println(state + " " +prioriry);
 
+        for (int i = 0; i < threads.toArray().length; i++) {
+            threads.get(i).start();
+        }
 
+        main.list();
     }
 }
